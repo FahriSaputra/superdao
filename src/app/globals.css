@@ -13,6 +13,7 @@ body {
 body {
   display: flex;
   justify-content: center;
+  font-family: var(--sf-pro-display);
 }
 
 main {
