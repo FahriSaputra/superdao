@@ -35,6 +35,7 @@ const Desc = styled.p`
   line-height: 24px; /* 160% */
   letter-spacing: -0.24px;
   margin-top: 8px;
+  font-family: var(--sf-pro-text);
 `;
 
 const Button = styled(Link)`
@@ -54,6 +55,7 @@ const Button = styled(Link)`
   font-weight: 600;
   line-height: 24px; /* 160% */
   letter-spacing: -0.24px;
+  font-family: var(--sf-pro-text);
 `;
 
 const NotFound = () => {
