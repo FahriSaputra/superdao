@@ -7,6 +7,11 @@ const Container = styled.main`
   display: flex;
 `;
 
+const Wrapper = styled.div`
+  background-color: #1b202a;
+  height: 100%;
+`;
+
 export default function CommonLayout({
   children,
 }: {
@@ -15,7 +20,7 @@ export default function CommonLayout({
   return (
     <Container>
       <Aside />
-      {children}
+      <Wrapper>{children}</Wrapper>
     </Container>
   );
 }
