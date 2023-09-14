@@ -2,6 +2,7 @@
 
 import styled from "styled-components";
 import MENU_DATA from "./data";
+import AsideHeader from "./_components/AsideHeader";
 import AsideFooter from "./_components/AsideFooter";
 import AsideMenu from "./_components/AsideMenu";
 
@@ -16,6 +17,8 @@ const Container = styled.aside`
 export default function Aside() {
   return (
     <Container>
+      <AsideHeader />
+
       <AsideMenu menu={MENU_DATA} />
 
       <AsideFooter />
