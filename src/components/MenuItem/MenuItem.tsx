@@ -3,6 +3,7 @@
 import Image from "next/image";
 import styled from "styled-components";
 import type { IMenuItem } from "@/components/Aside";
+import { useMemo } from "react";
 
 const Wrapper = styled.div<{ active: boolean }>`
   padding: 8px 20px;
@@ -23,6 +24,7 @@ const Wrapper = styled.div<{ active: boolean }>`
 const Content = styled.div`
   display: flex;
   gap: 12px;
+  width: calc(100% - 16px);
 `;
 
 const Title = styled.p<{ active: boolean }>`
@@ -34,25 +36,28 @@ const Title = styled.p<{ active: boolean }>`
   font-weight: 600;
   line-height: 24px; /* 160% */
   letter-spacing: -0.24px;
-`;
-
-const ArrowWrapper = styled.div<{ expand: boolean }>`
-  display: flex;
-  align-items: center;
-  transform: ${({ expand }) => (expand ? "rotate(180deg)" : "rotate(0)")};
-  transition: 0.3s;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  padding-right: 8px;
 `;
 
 interface MenuItemProps {
   menu: IMenuItem;
   active: boolean;
   onClick?: React.MouseEventHandler<HTMLDivElement>;
-  expand?: boolean;
-  withDropIcon?: boolean;
+  rightContent?: React.ReactNode;
+  title?: React.ReactNode;
 }
 
 export default function MenuItem(props: MenuItemProps) {
-  const { menu, active, expand = false, withDropIcon, onClick } = props;
+  const { menu, active, onClick, rightContent, title } = props;
+
+  const renderTitle = useMemo(() => {
+    if (!!title) return title;
+
+    return <Title active={active}>{menu?.title}</Title>;
+  }, [active, menu?.title, title]);
 
   return (
     <Wrapper active={active} onClick={onClick}>
@@ -63,19 +68,10 @@ export default function MenuItem(props: MenuItemProps) {
           height={24}
           alt={menu?.title}
         />
-        <Title active={active}>{menu?.title}</Title>
+        {renderTitle}
       </Content>
 
-      {withDropIcon && (
-        <ArrowWrapper expand={expand}>
-          <Image
-            src="/assets/chevron-down.svg"
-            width={16}
-            height={16}
-            alt="arrow-down"
-          />
-        </ArrowWrapper>
-      )}
+      {rightContent}
     </Wrapper>
   );
 }
