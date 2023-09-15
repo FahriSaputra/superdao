@@ -1,7 +1,7 @@
 "use client";
 
-import MenuItem from "@/components/MenuItem";
-import Spacing from "@/components/Spacing";
+import MenuItem from "@/components/common/MenuItem";
+import Spacing from "@/components/common/Spacing";
 import type { IMenuItem } from "../../type";
 
 const HELP: IMenuItem = {

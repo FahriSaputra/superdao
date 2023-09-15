@@ -1,6 +1,6 @@
 "use client";
 
-import Spinner from "@/components/Spinner";
+import Spinner from "@/components/common/Spinner";
 import Image from "next/image";
 import styled from "styled-components";
 

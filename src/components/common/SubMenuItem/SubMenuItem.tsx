@@ -1,7 +1,7 @@
 "use client";
 
 import styled from "styled-components";
-import type { ISubMenuItem } from "@/components/Aside";
+import type { ISubMenuItem } from "@/components/common/Aside";
 import Link from "next/link";
 
 const Wrapper = styled(Link)<{ active: boolean }>`

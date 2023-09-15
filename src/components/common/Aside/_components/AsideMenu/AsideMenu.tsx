@@ -1,8 +1,8 @@
 "use client";
 
 import styled from "styled-components";
-import Spacing from "@/components/Spacing";
-import type { IMenuItem } from "@/components/Aside/type";
+import Spacing from "@/components/common/Spacing";
+import type { IMenuItem } from "../../type";
 import MenuCell from "../MenuCell";
 
 const MenuContainer = styled.div`

@@ -3,7 +3,7 @@
 import { useRef, useState } from "react";
 import styled from "styled-components";
 
-import SearchInput from "@/components/SearchInput";
+import SearchInput from "@/components/common/SearchInput";
 import useOutsideClick from "@/hooks/useOutsideClick";
 import SearchResult from "./_components/SearchResult";
 

@@ -2,7 +2,7 @@ import "./globals.css";
 import type { Metadata } from "next";
 import { sfProDisplay, sfProText } from "@/lib/font";
 import StyledComponentsRegistry from "@/lib/registry";
-import CommonLayout from "@/components/CommonLayout";
+import CommonLayout from "@/components/common/CommonLayout";
 
 export const metadata: Metadata = {
   title: "Create Next App",

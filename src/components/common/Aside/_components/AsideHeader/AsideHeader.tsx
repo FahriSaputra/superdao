@@ -2,10 +2,10 @@
 
 import styled from "styled-components";
 import Image from "next/image";
-import MenuItem from "@/components/MenuItem";
+import MenuItem from "@/components/common/MenuItem";
 import { IMenuItem } from "../../type";
 import { useState } from "react";
-import Dropdown from "@/components/Dropdown";
+import Dropdown from "@/components/common/Dropdown";
 
 const Container = styled.div`
   margin-top: 16px;

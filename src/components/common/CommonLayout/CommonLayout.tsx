@@ -1,7 +1,7 @@
 "use client";
 
 import styled from "styled-components";
-import Aside from "@/components/Aside";
+import Aside from "@/components/common/Aside";
 
 const Container = styled.main`
   display: flex;

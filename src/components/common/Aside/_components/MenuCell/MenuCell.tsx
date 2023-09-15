@@ -3,9 +3,9 @@
 import { useState } from "react";
 import styled from "styled-components";
 import { usePathname, useRouter } from "next/navigation";
-import type { IMenuItem } from "@/components/Aside";
-import SubMenuItem from "@/components/SubMenuItem";
-import MenuItem from "@/components/MenuItem";
+import type { IMenuItem } from "../../type";
+import SubMenuItem from "@/components/common/SubMenuItem";
+import MenuItem from "@/components/common/MenuItem";
 import Image from "next/image";
 
 const SubMenuWrapper = styled.div<{ expand: boolean }>`

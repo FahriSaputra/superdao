@@ -2,7 +2,7 @@
 
 import Image from "next/image";
 import styled from "styled-components";
-import type { IMenuItem } from "@/components/Aside";
+import type { IMenuItem } from "@/components/common/Aside";
 import { useMemo } from "react";
 
 const Wrapper = styled.div<{ active: boolean }>`
