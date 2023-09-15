@@ -10,8 +10,9 @@ const Container = styled.main`
 const Wrapper = styled.div`
   background-color: #1b202a;
   width: calc(100% - 288px);
-  height: 100%;
+  height: 100vh;
   padding: 0 32px;
+  overflow-y: scroll;
 `;
 
 export default function CommonLayout({
