@@ -1,0 +1,138 @@
+[
+  {
+    "id": 1,
+    "title": "Art",
+    "iconUrl": "/assets/labels/art.svg",
+    "background": "rgba(214, 147, 255, 0.08)",
+    "interest": true,
+    "counter": 100000
+  },
+  {
+    "id": 2,
+    "title": "Music",
+    "iconUrl": "/assets/labels/music.svg",
+    "background": "rgba(255, 218, 26, 0.08)",
+    "interest": true,
+    "counter": 500000
+  },
+  {
+    "id": 3,
+    "title": "Fashion",
+    "iconUrl": "/assets/labels/fashion.svg",
+    "background": "rgba(58, 157, 255, 0.08)",
+    "interest": true,
+    "counter": 345000
+  },
+  {
+    "id": 4,
+    "title": "Luxury",
+    "iconUrl": "/assets/labels/luxury.svg",
+    "background": "rgba(94, 250, 212, 0.08)",
+    "interest": true,
+    "counter": 10000
+  },
+  {
+    "id": 5,
+    "title": "Developer",
+    "iconUrl": "/assets/labels/developer.svg",
+    "background": "rgba(50, 215, 75, 0.08)",
+    "interest": false,
+    "counter": 77000
+  },
+  {
+    "id": 6,
+    "title": "Professional",
+    "iconUrl": "/assets/labels/professional.svg",
+    "background": "rgba(58, 157, 255, 0.08)",
+    "interest": false,
+    "counter": 12000
+  },
+  {
+    "id": 7,
+    "title": "Early adopter",
+    "iconUrl": "/assets/labels/bird.svg",
+    "background": "rgba(255, 218, 26, 0.08)",
+    "interest": false,
+    "counter": 14000
+  },
+  {
+    "id": 8,
+    "title": "Whale",
+    "iconUrl": "/assets/labels/whale.svg",
+    "background": "rgba(168, 242, 48, 0.08)",
+    "interest": false,
+    "counter": 121000
+  },
+  {
+    "id": 9,
+    "title": "Influencer",
+    "iconUrl": "/assets/labels/influencer.svg",
+    "background": "rgba(255, 218, 26, 0.08)",
+    "interest": false,
+    "counter": 312900
+  },
+  {
+    "id": 10,
+    "title": "Gamer",
+    "iconUrl": "/assets/labels/gamer.svg",
+    "background": "rgba(168, 242, 48, 0.08)",
+    "interest": false,
+    "counter": 761000
+  },
+  {
+    "id": 11,
+    "title": "Hunter",
+    "iconUrl": "/assets/labels/hunter.svg",
+    "background": "rgba(193, 92, 255, 0.08)",
+    "interest": false,
+    "counter": 1000
+  },
+  {
+    "id": 12,
+    "title": "DeFi trader",
+    "iconUrl": "/assets/labels/defi.svg",
+    "background": "rgba(242, 48, 81, 0.08)",
+    "interest": false,
+    "counter": 21000
+  },
+  {
+    "id": 13,
+    "title": "NFT trader",
+    "iconUrl": "/assets/labels/nft.svg",
+    "background": "rgba(214, 147, 255, 0.08)",
+    "interest": false,
+    "counter": 12000
+  },
+  {
+    "id": 14,
+    "title": "Token investor",
+    "iconUrl": "/assets/labels/token.svg",
+    "background": "rgba(54, 190, 217, 0.08)",
+    "interest": false,
+    "counter": 30000
+  },
+  {
+    "id": 15,
+    "title": "Donor",
+    "iconUrl": "/assets/labels/donor.svg",
+    "background": "rgba(136, 195, 255, 0.08)",
+    "interest": false,
+    "counter": 3000
+  },
+  {
+    "id": 16,
+    "title": "Voter",
+    "iconUrl": "/assets/labels/voter.svg",
+    "background": "rgba(145, 255, 142, 0.08)",
+    "interest": false,
+    "counter": 921000
+  },
+  {
+    "id": 17,
+    "title": "Non-human",
+    "iconUrl": "/assets/labels/non-human.svg",
+    "background": "rgba(219, 222, 255, 0.08)",
+    "interest": false,
+    "counter": 83000
+  }
+]
