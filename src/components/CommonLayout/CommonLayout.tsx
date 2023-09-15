@@ -9,8 +9,9 @@ const Container = styled.main`
 
 const Wrapper = styled.div`
   background-color: #1b202a;
-  width: calc(100% - 288px);
+  width: 100%;
   height: 100%;
+  padding: 0 32px;
 `;
 
 export default function CommonLayout({
