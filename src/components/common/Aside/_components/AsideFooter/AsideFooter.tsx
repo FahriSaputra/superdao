@@ -7,8 +7,8 @@ import type { IMenuItem } from "../../type";
 const HELP: IMenuItem = {
   id: 1,
   title: "Help",
-  icon: "/assets/explore.svg",
-  activeIcon: "/assets/explore.svg",
+  icon: "/assets/lifebuoy.svg",
+  activeIcon: "/assets/lifebuoy.svg",
   linkTo: "/explore",
   defaultOpen: false,
   subMenu: [],
@@ -17,8 +17,8 @@ const HELP: IMenuItem = {
 const PROFILE: IMenuItem = {
   id: 1,
   title: "minooor.eth",
-  icon: "/assets/explore.svg",
-  activeIcon: "/assets/explore.svg",
+  icon: "/assets/Avatar.svg",
+  activeIcon: "/assets/Avatar.svg",
   linkTo: "",
   defaultOpen: false,
   subMenu: [],

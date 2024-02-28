@@ -22,7 +22,7 @@ const MENU_DATA: IMenuItem[] = [
       {
         id: 3,
         title: "NFT collections",
-        linkTo: "/collection",
+        linkTo: "/nft",
       },
       {
         id: 4,
@@ -39,8 +39,8 @@ const MENU_DATA: IMenuItem[] = [
   {
     id: 2,
     title: "Audiences",
-    icon: "/assets/explore.svg",
-    activeIcon: "/assets/explore.svg",
+    icon: "/assets/audience.svg",
+    activeIcon: "/assets/audience.svg",
     linkTo: "/explore",
     defaultOpen: false,
     subMenu: [
@@ -64,8 +64,8 @@ const MENU_DATA: IMenuItem[] = [
   {
     id: 3,
     title: "Campaigns",
-    icon: "/assets/explore.svg",
-    activeIcon: "/assets/explore.svg",
+    icon: "/assets/campaigns.svg",
+    activeIcon: "/assets/campaigns.svg",
     linkTo: "/campaign",
     defaultOpen: false,
     subMenu: [],
@@ -73,8 +73,8 @@ const MENU_DATA: IMenuItem[] = [
   {
     id: 4,
     title: "Reporting",
-    icon: "/assets/explore.svg",
-    activeIcon: "/assets/explore.svg",
+    icon: "/assets/reporting.svg",
+    activeIcon: "/assets/reporting.svg",
     linkTo: "/reporting",
     defaultOpen: false,
     subMenu: [],
@@ -82,8 +82,8 @@ const MENU_DATA: IMenuItem[] = [
   {
     id: 5,
     title: "Members",
-    icon: "/assets/explore.svg",
-    activeIcon: "/assets/explore.svg",
+    icon: "/assets/members.svg",
+    activeIcon: "/assets/members.svg",
     linkTo: "/members",
     defaultOpen: false,
     subMenu: [],
@@ -91,8 +91,8 @@ const MENU_DATA: IMenuItem[] = [
   {
     id: 6,
     title: "Settings",
-    icon: "/assets/explore.svg",
-    activeIcon: "/assets/explore.svg",
+    icon: "/assets/settings.svg",
+    activeIcon: "/assets/settings.svg",
     linkTo: "/settings",
     defaultOpen: false,
     subMenu: [],

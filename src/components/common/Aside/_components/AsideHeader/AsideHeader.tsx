@@ -50,8 +50,8 @@ export default function AsideHeader() {
   const [headerData] = useState<IMenuItem>({
     id: 1,
     title: "Acme Inc.",
-    icon: "/assets/explore.svg",
-    activeIcon: "/assets/explore.svg",
+    icon: "/assets/token.svg",
+    activeIcon: "/assets/token.svg",
     linkTo: "",
     defaultOpen: false,
     subMenu: [],
