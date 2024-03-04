@@ -5,6 +5,7 @@ import Aside from "@/components/common/Aside";
 
 const Container = styled.main`
   display: flex;
+  height: 100vh;
 `;
 
 const Wrapper = styled.div`
