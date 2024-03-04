@@ -1,5 +1,6 @@
 "use client";
 
+import { fiFormatter } from "@/utils/fiFormater";
 import Image from "next/image";
 import { useRouter } from "next/navigation";
 import styled from "styled-components";
@@ -85,7 +86,7 @@ const Header = (props: HeaderProps) => {
           {contentBeforeTitle}
 
           <Title>{title}</Title>
-          <Counter>{counter}</Counter>
+          {counter && <Counter>{fiFormatter(counter)}</Counter>}
         </TitleWrapper>
       </LeftContent>
 
