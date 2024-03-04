@@ -1,7 +1,8 @@
 "use client";
 
 import styled from "styled-components";
-import { CSSProperties, useMemo } from "react";
+import { CSSProperties, useMemo, useRef } from "react";
+import useOutsideClick from "@/hooks/useOutsideClick";
 
 const Container = styled.div`
   position: relative;
@@ -26,11 +27,13 @@ interface DropdownProps {
   childrenContainerStyle?: CSSProperties;
   visible: boolean;
   onClick?: React.MouseEventHandler<HTMLDivElement>;
+  onOutsideClick: () => void;
 }
 
 const Dropdown = (props: DropdownProps) => {
   const {
     children,
+    onOutsideClick,
     dropdownButton,
     childrenContainerStyle,
     position = "bottom",
@@ -46,8 +49,12 @@ const Dropdown = (props: DropdownProps) => {
     return { left: 0 };
   }, [position]);
 
+  const containerRef = useRef(null);
+
+  useOutsideClick(containerRef, onOutsideClick);
+
   return (
-    <Container>
+    <Container ref={containerRef}>
       <div onClick={onClick}>{dropdownButton}</div>
 
       {visible && (
