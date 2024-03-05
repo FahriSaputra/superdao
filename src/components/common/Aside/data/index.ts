@@ -27,7 +27,7 @@ const MENU_DATA: IMenuItem[] = [
       {
         id: 4,
         title: "Tokens",
-        linkTo: "/token",
+        linkTo: "/tokens",
       },
       {
         id: 5,
