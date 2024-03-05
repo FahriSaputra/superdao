@@ -1,5 +1,8 @@
 "use client";
 
+import { Table as TableData, flexRender } from "@tanstack/react-table";
+import Pagination from "../Pagination";
+
 import styled from "styled-components";
 
 const TableContainer = styled.div`
@@ -39,7 +42,7 @@ const TableContentHead = styled.th<{
   textAlign?: string;
   paddingLeft?: number;
 }>`
-  padding: 8px 12px 8px 12px;
+  padding: 10px 12px 8px;
   padding-left: ${({ paddingLeft }) => paddingLeft};
   color: #717a8c;
   min-width: ${({ width }) => (width ? `${width}px` : "fit-content")};
@@ -66,4 +69,43 @@ const TData = styled.td<{
     textAlign ? `${textAlign}` : "flex-end"};
 `;
 
-export { TableContainer, Table, TRow, TableContentHead, TData };
+interface IMainTableProps {
+  table: TableData<any>;
+  rowsPerPages?: number[];
+}
+
+const MainTable = (props: IMainTableProps) => {
+  const { table, rowsPerPages = [10, 15, 25] } = props;
+
+  return (
+    <TableContainer>
+      <Table>
+        <thead>
+          {table.getHeaderGroups()?.map((headerGroup) => (
+            <TRow key={headerGroup.id}>
+              {headerGroup.headers.map((header) =>
+                flexRender(header.column.columnDef.header, header.getContext())
+              )}
+            </TRow>
+          ))}
+        </thead>
+
+        <tbody>
+          {table.getRowModel().rows.map((row) => (
+            <TRow key={row.id} bgHovered>
+              {row
+                .getVisibleCells()
+                .map((cell) =>
+                  flexRender(cell.column.columnDef.cell, cell.getContext())
+                )}
+            </TRow>
+          ))}
+        </tbody>
+      </Table>
+
+      <Pagination table={table} rows={rowsPerPages} />
+    </TableContainer>
+  );
+};
+
+export { TableContainer, Table, TRow, TableContentHead, TData, MainTable };
