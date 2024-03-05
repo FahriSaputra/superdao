@@ -1,0 +1,44 @@
+[
+  {
+    "id": 1,
+    "name": "Uniswap",
+    "avatar": "/assets/dapps/uniswap.svg",
+    "wallets": 17500000,
+    "category": "DeFi",
+    "comment": "Human-initiated swap contracts",
+    "chain": [
+      { "id": 1, "icon": "/assets/ethereum.svg", "name": "ethereum" },
+      { "id": 2, "icon": "/assets/polygon.svg", "name": "polygon" }
+    ]
+  },
+  {
+    "id": 2,
+    "name": "OpenSea",
+    "avatar": "/assets/dapps/open-sea.svg",
+    "wallets": 20700,
+    "category": "Marketplace",
+    "comment": "Buyer-seller contracts",
+    "chain": [{ "id": 2, "icon": "/assets/polygon.svg", "name": "polygon" }]
+  },
+  {
+    "id": 3,
+    "name": "1inch",
+    "avatar": "/assets/dapps/one-inch.svg",
+    "wallets": 100000,
+    "category": "DeFi",
+    "comment": "Human-initiated swap contracts",
+    "chain": [{ "id": 1, "icon": "/assets/ethereum.svg", "name": "ethereum" }]
+  },
+  {
+    "id": 4,
+    "name": "Blur",
+    "avatar": "/assets/dapps/blur.svg",
+    "wallets": 109000,
+    "category": "Marketplace",
+    "comment": "Buyer-seller contracts",
+    "chain": [
+      { "id": 1, "icon": "/assets/ethereum.svg", "name": "ethereum" },
+      { "id": 2, "icon": "/assets/polygon.svg", "name": "polygon" }
+    ]
+  }
+]
