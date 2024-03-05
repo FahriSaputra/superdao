@@ -49,7 +49,7 @@ const TableContentHead = styled.th<{
   font-size: 13px;
   line-height: 18px;
   letter-spacing: -0.08px;
-  text-align: ${({ textAlign }) => (textAlign ? `${textAlign}` : "")};
+  text-align: ${({ textAlign }) => (textAlign ? `${textAlign}` : "end")};
 `;
 
 const TData = styled.td<{
