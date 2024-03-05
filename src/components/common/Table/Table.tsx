@@ -77,6 +77,11 @@ interface IMainTableProps {
 const MainTable = (props: IMainTableProps) => {
   const { table, rowsPerPages = [10, 15, 25] } = props;
 
+  const rowLength = table.getRowModel().rows.length;
+  const pageCount = table.getPageCount();
+
+  const showPagination = rowLength > 10 || pageCount > 1;
+
   return (
     <TableContainer>
       <Table>
@@ -103,7 +108,7 @@ const MainTable = (props: IMainTableProps) => {
         </tbody>
       </Table>
 
-      <Pagination table={table} rows={rowsPerPages} />
+      {showPagination && <Pagination table={table} rows={rowsPerPages} />}
     </TableContainer>
   );
 };
