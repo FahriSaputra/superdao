@@ -1,7 +1,9 @@
 import styled from "styled-components";
 import Link from "next/link";
 
-const Button = styled(Link)<{ maxWidth?: number }>`
+type TButton = "primary" | "text";
+
+const Button = styled(Link)<{ maxWidth?: number; type?: TButton }>`
   display: flex;
   height: 40px;
   padding: 0px 24px;
@@ -16,6 +18,14 @@ const Button = styled(Link)<{ maxWidth?: number }>`
     `
     max-width: ${maxWidth}px;
   `}
+
+  ${({ type }) =>
+    type === "text" &&
+    `
+    background: transparent;
+  `}
+
+
 
   color: white;
   font-size: 15px;
