@@ -1,7 +1,7 @@
 import styled from "styled-components";
 import Link from "next/link";
 
-const Button = styled(Link)`
+const Button = styled(Link)<{ maxWidth?: number }>`
   display: flex;
   height: 40px;
   padding: 0px 24px;
@@ -11,6 +11,11 @@ const Button = styled(Link)`
   cursor: pointer;
   border: none;
   justify-content: center;
+  ${({ maxWidth }) =>
+    maxWidth &&
+    `
+    max-width: ${maxWidth}px;
+  `}
 
   color: white;
   font-size: 15px;
