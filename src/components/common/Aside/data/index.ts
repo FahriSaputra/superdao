@@ -92,7 +92,7 @@ const MENU_DATA: IMenuItem[] = [
     id: 6,
     title: "Settings",
     icon: "/assets/settings.svg",
-    activeIcon: "/assets/settings.svg",
+    activeIcon: "/assets/settings-active.svg",
     linkTo: "/settings",
     defaultOpen: false,
     subMenu: [],
