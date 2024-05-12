@@ -1,13 +1,16 @@
 "use client";
 
 import Image from "next/image";
-import { InputHTMLAttributes, useRef } from "react";
+import { InputHTMLAttributes, useRef, useState } from "react";
 import styled from "styled-components";
 
 const InputComponent = styled.input<{
   rightIcon?: boolean;
   leftIcon?: boolean;
   lineHeight: "xl" | "md";
+  type?: string;
+  fileNameChoosen?: string;
+  placeholder?: string;
 }>`
   display: flex;
   flex-direction: row;
@@ -26,10 +29,44 @@ const InputComponent = styled.input<{
   padding-right: ${({ rightIcon }) => (rightIcon ? "40px" : "16px")};
   padding-left: ${({ leftIcon }) => (leftIcon ? "40px" : "16px")};
   line-height: ${({ lineHeight }) => (lineHeight === "xl" ? "24px" : "20px")};
+  /* cursor: pointer; */
+
+  &::placeholder {
+    color: #717a8c;
+  }
 
   &:focus {
     background-color: #3d4450;
+    font-family: var(--sf-pro-text);
   }
+  ${({ type, fileNameChoosen, placeholder }) =>
+    type === "file" &&
+    `
+    &::before {
+    content: "${fileNameChoosen || placeholder}";
+    flex-grow: 0;
+    font-family: var(--sf-pro-text);
+    font-size: 15px;
+    font-weight: normal;
+    font-stretch: normal;
+    font-style: normal;
+    line-height: 1.6;
+    letter-spacing: -0.24px;
+    text-align: left;
+    color: #717a8c;
+  }
+  `}
+
+  &::file-selector-button {
+    display: none;
+  }
+
+  ${({ type }) =>
+    type === "file" &&
+    `
+    font-size: 0px !important;
+    cursor: pointer;
+  `}
 
   // text style
   flex-grow: 0;
@@ -105,12 +142,28 @@ const Input = (props: IInputProps) => {
 
   const inputRef = useRef<HTMLInputElement>(null);
 
+  const [fileNameChoosen, setFileNameChoosen] = useState<string>("");
+
   const onLeftIconClick = () => {
     inputRef?.current?.focus();
   };
 
   const handleRightIconClick = () => {
     onRightIconClick?.();
+  };
+
+  const handleChange: React.ChangeEventHandler<HTMLInputElement> = (event) => {
+    // @ts-ignore: Object is possibly 'null'.
+    const selectedFile = event?.target?.files[0];
+    if (selectedFile) {
+      setFileNameChoosen(selectedFile.name);
+    } else {
+      setFileNameChoosen(""); // Kosongkan nama file jika tidak ada file yang dipilih
+    }
+
+    if (rest?.onChange) {
+      rest.onChange(event); // Panggil fungsi onChange jika tersedia
+    }
   };
 
   return (
@@ -129,6 +182,8 @@ const Input = (props: IInputProps) => {
         leftIcon={!!leftIcon}
         lineHeight={lineHeight}
         ref={inputRef}
+        onChange={handleChange}
+        fileNameChoosen={fileNameChoosen}
       />
 
       {rightIcon && rightIconAlt && (
