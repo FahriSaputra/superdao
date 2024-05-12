@@ -28,15 +28,20 @@ const Shadow = styled.div`
 
 interface AsideMenuProps {
   menu: IMenuItem[];
+  handleShowModal: () => void;
 }
 
 export default function AsideMenu(props: AsideMenuProps) {
-  const { menu } = props;
+  const { menu, handleShowModal } = props;
 
   return (
     <MenuContainer>
       {menu?.map((item) => (
-        <MenuCell key={item?.id} menu={item} />
+        <MenuCell
+          key={item?.id}
+          menu={item}
+          handleShowModal={handleShowModal}
+        />
       ))}
 
       <Spacing height={40} />

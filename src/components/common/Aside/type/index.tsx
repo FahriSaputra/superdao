@@ -1,3 +1,9 @@
+export interface ISubMenuAction {
+  title: string;
+  rightIcon?: string;
+  altRightIcon?: string;
+}
+
 export interface ISubMenuItem {
   id: number;
   title: string;
@@ -13,4 +19,5 @@ export interface IMenuItem {
   linkTo: string;
   defaultOpen: boolean;
   subMenu: ISubMenuItem[];
+  action?: ISubMenuAction;
 }

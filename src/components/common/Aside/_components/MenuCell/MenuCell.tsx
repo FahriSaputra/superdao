@@ -7,6 +7,7 @@ import type { IMenuItem } from "../../type";
 import SubMenuItem from "@/components/common/SubMenuItem";
 import MenuItem from "@/components/common/MenuItem";
 import Image from "next/image";
+import SubMenuAction from "@/components/common/SubMenuAction";
 
 const SubMenuWrapper = styled.div<{ expand: boolean }>`
   overflow: hidden;
@@ -23,10 +24,11 @@ const ArrowWrapper = styled.div<{ expand: boolean }>`
 
 interface MenuCellProps {
   menu: IMenuItem;
+  handleShowModal: () => void;
 }
 
 export default function MenuCell(props: MenuCellProps) {
-  const { menu } = props;
+  const { menu, handleShowModal } = props;
 
   const [expand, setExpand] = useState(false);
 
@@ -82,6 +84,10 @@ export default function MenuCell(props: MenuCellProps) {
             active={subMenu?.linkTo === path}
           />
         ))}
+
+        {!!menu?.action && (
+          <SubMenuAction action={menu?.action} onClick={handleShowModal} />
+        )}
       </SubMenuWrapper>
     </>
   );

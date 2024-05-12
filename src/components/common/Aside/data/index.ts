@@ -43,6 +43,11 @@ const MENU_DATA: IMenuItem[] = [
     activeIcon: "/assets/audience.svg",
     linkTo: "/explore",
     defaultOpen: false,
+    action: {
+      title: "Add audience",
+      rightIcon: "/assets/plus.svg",
+      altRightIcon: "add",
+    },
     subMenu: [
       {
         id: 1,
