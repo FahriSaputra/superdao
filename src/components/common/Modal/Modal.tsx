@@ -12,6 +12,7 @@ interface IModalProps
     IModalFooterProps,
     IModalContainerProps {
   visible: boolean;
+  withoutPaddingHorizontal?: boolean;
 }
 
 const Modal = (props: React.PropsWithChildren<IModalProps>) => {
@@ -25,6 +26,7 @@ const Modal = (props: React.PropsWithChildren<IModalProps>) => {
     onCloseClick,
     title,
     onOutsideClick,
+    withoutPaddingHorizontal,
   } = props;
 
   if (!visible) return;
@@ -38,7 +40,9 @@ const Modal = (props: React.PropsWithChildren<IModalProps>) => {
         contentBeforeTitle={contentBeforeTitle}
       />
 
-      <ModalBody>{children}</ModalBody>
+      <ModalBody withoutPaddingHorizontal={withoutPaddingHorizontal}>
+        {children}
+      </ModalBody>
 
       {primaryButton?.children && (
         <ModalFooter
