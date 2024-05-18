@@ -5,10 +5,7 @@ import { Input, Label } from "@/components/common/Input";
 import Button from "@/components/common/Button/Button";
 import styled from "styled-components";
 import AvatarUploader from "./_components/AvatarUploader";
-
-const WhiteSpace = styled.div<{ height: number }>`
-  height: ${({ height }) => `${height}px`};
-`;
+import Spacing from "../common/Spacing";
 
 const LeftInputContent = styled.span`
   padding: 8px 0 8px 16px;
@@ -45,7 +42,7 @@ const SettingsPage = () => {
       <Label htmlFor="workspace">Workspace name</Label>
       <Input id="workspace" placeholder="Acme Inc." />
 
-      <WhiteSpace height={16} />
+      <Spacing height={16} />
 
       <Label htmlFor="workspace">Custom URL</Label>
       <UrlInput
@@ -54,7 +51,7 @@ const SettingsPage = () => {
         leftContent={<LeftInputContent>superdao.co/</LeftInputContent>}
       />
 
-      <WhiteSpace height={40} />
+      <Spacing height={40} />
 
       <Button maxWidth={147}>Save Change</Button>
     </>
