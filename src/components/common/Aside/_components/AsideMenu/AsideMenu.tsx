@@ -29,10 +29,12 @@ const Shadow = styled.div`
 interface AsideMenuProps {
   menu: IMenuItem[];
   handleShowModal: () => void;
+  onClickMenu?: () => void;
+  onSubMenuClick?: () => void;
 }
 
 export default function AsideMenu(props: AsideMenuProps) {
-  const { menu, handleShowModal } = props;
+  const { menu, handleShowModal, onClickMenu, onSubMenuClick } = props;
 
   return (
     <MenuContainer>
@@ -41,6 +43,8 @@ export default function AsideMenu(props: AsideMenuProps) {
           key={item?.id}
           menu={item}
           handleShowModal={handleShowModal}
+          onClickMenu={onClickMenu}
+          onSubMenuClick={onSubMenuClick}
         />
       ))}
 

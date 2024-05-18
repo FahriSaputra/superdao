@@ -9,16 +9,31 @@ import AsideSearch from "./_components/AsideSearch";
 import { useState } from "react";
 import AddAudienceModal from "./_components/AddAudienceModal";
 
-const Container = styled.aside`
+const Container = styled.aside<{ active?: boolean }>`
   background-color: #252b36;
   width: 288px;
   height: 100vh;
   display: flex;
   flex-direction: column;
+  transition: 0.3s;
+
+  @media only screen and (max-width: 768px) {
+    position: absolute;
+    left: ${({ active }) => (active ? "0" : "-288px")};
+    z-index: 9999;
+  }
 `;
 
-export default function Aside() {
+interface AsideProps {
+  active?: boolean;
+  onClickMenu?: () => void;
+  onSubMenuClick?: () => void;
+}
+
+export default function Aside(props: AsideProps) {
   const [visible, setVisible] = useState(false);
+
+  const { active, onClickMenu, onSubMenuClick } = props;
 
   const handleShowModal = () => {
     setVisible(true);
@@ -29,12 +44,17 @@ export default function Aside() {
   };
 
   return (
-    <Container>
+    <Container active={active}>
       <AsideHeader />
 
       <AsideSearch />
 
-      <AsideMenu menu={MENU_DATA} handleShowModal={handleShowModal} />
+      <AsideMenu
+        menu={MENU_DATA}
+        handleShowModal={handleShowModal}
+        onClickMenu={onClickMenu}
+        onSubMenuClick={onSubMenuClick}
+      />
 
       <AsideFooter />
 

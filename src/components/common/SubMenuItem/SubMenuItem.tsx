@@ -48,7 +48,8 @@ const RightText = styled.p<{ active: boolean }>`
   letter-spacing: -0.24px;
 `;
 
-interface SubMenuItemProps {
+interface SubMenuItemProps
+  extends React.AnchorHTMLAttributes<HTMLAnchorElement> {
   subMenu: ISubMenuItem;
   active: boolean;
 }
@@ -59,7 +60,7 @@ export default function SubMenuItem(props: SubMenuItemProps) {
   const linkTo = subMenu?.linkTo;
 
   return (
-    <Wrapper active={active} href={linkTo}>
+    <Wrapper {...props} active={active} href={linkTo}>
       <Title active={active}>{subMenu?.title}</Title>
     </Wrapper>
   );

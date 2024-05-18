@@ -25,10 +25,12 @@ const ArrowWrapper = styled.div<{ expand: boolean }>`
 interface MenuCellProps {
   menu: IMenuItem;
   handleShowModal: () => void;
+  onClickMenu?: () => void;
+  onSubMenuClick?: () => void;
 }
 
 export default function MenuCell(props: MenuCellProps) {
-  const { menu, handleShowModal } = props;
+  const { menu, handleShowModal, onClickMenu, onSubMenuClick } = props;
 
   const [expand, setExpand] = useState(false);
 
@@ -44,7 +46,7 @@ export default function MenuCell(props: MenuCellProps) {
 
   const withRightContent = subMenu.length > 0 && !defaultOpen;
 
-  const onMenuClick = () => {
+  const handleClickMenu = () => {
     if (subMenu.length > 0) {
       if (!defaultOpen) {
         return setExpand((prevValue) => !prevValue);
@@ -52,6 +54,8 @@ export default function MenuCell(props: MenuCellProps) {
 
       return;
     }
+
+    onClickMenu?.();
 
     router?.push(menu?.linkTo);
   };
@@ -61,7 +65,7 @@ export default function MenuCell(props: MenuCellProps) {
       <MenuItem
         menu={menu}
         active={isActive}
-        onClick={onMenuClick}
+        onClick={handleClickMenu}
         rightContent={
           withRightContent && (
             <ArrowWrapper expand={expand}>
@@ -82,6 +86,7 @@ export default function MenuCell(props: MenuCellProps) {
             key={subMenu?.id}
             subMenu={subMenu}
             active={subMenu?.linkTo === path}
+            onClick={onSubMenuClick}
           />
         ))}
 
