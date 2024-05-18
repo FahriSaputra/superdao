@@ -66,7 +66,7 @@ const CampaignsPage = () => {
           it’s ready or contact us to be among the first to get access
         </Desc>
 
-        <Button href="">Contact us</Button>
+        <Button>Contact us</Button>
       </Wrapper>
     </Container>
   );

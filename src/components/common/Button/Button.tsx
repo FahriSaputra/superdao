@@ -1,15 +1,12 @@
 import styled from "styled-components";
-import Link from "next/link";
 
-type TButton = "primary" | "text";
+type TButton = "primary" | "secondary" | "text" | "danger";
 
-const Button = styled(Link)<{ maxWidth?: number; type?: TButton }>`
+const Button = styled.button<{ maxWidth?: number; buttonStyle?: TButton }>`
   display: flex;
-  height: 40px;
-  padding: 0px 24px;
+  padding: 8px 24px;
   align-items: center;
   border-radius: 8px;
-  background: #fc7900;
   cursor: pointer;
   border: none;
   justify-content: center;
@@ -18,14 +15,17 @@ const Button = styled(Link)<{ maxWidth?: number; type?: TButton }>`
     `
     max-width: ${maxWidth}px;
   `}
-
-  ${({ type }) =>
-    type === "text" &&
-    `
-    background: transparent;
-  `}
-
-
+  background: ${({ buttonStyle }) => `
+    ${
+      buttonStyle === "danger"
+        ? "#FF5471"
+        : buttonStyle === "secondary"
+        ? "rgba(208, 220, 245, 0.08)"
+        : buttonStyle === "text"
+        ? "transparent"
+        : "#fc7900"
+    }
+  `};
 
   color: white;
   font-size: 15px;

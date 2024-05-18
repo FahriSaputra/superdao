@@ -24,7 +24,7 @@ const ModalFooter = (props: IModalFooterProps) => {
     <FooterContainer>
       <FooterWrapper>
         {secondaryButton?.children && primaryButton?.children && (
-          <Button {...secondaryButton} type="text">
+          <Button {...secondaryButton} buttonStyle="text">
             {secondaryButton?.children}
           </Button>
         )}

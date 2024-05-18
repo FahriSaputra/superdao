@@ -1,7 +1,8 @@
 "use client";
 
+import Button from "@/components/common/Button";
+import Spacing from "@/components/common/Spacing";
 import Image from "next/image";
-import Link from "next/link";
 import styled from "styled-components";
 
 const Container = styled.div`
@@ -38,26 +39,6 @@ const Desc = styled.p`
   font-family: var(--sf-pro-text);
 `;
 
-const Button = styled(Link)`
-  display: flex;
-  height: 40px;
-  padding: 0px 24px;
-  align-items: center;
-  border-radius: 8px;
-  background: #fc7900;
-  cursor: pointer;
-  margin-top: 32px;
-  border: none;
-
-  color: white;
-  font-size: 15px;
-  font-style: normal;
-  font-weight: 600;
-  line-height: 24px; /* 160% */
-  letter-spacing: -0.24px;
-  font-family: var(--sf-pro-text);
-`;
-
 const NotFound = () => {
   return (
     <Container>
@@ -78,7 +59,9 @@ const NotFound = () => {
         or the page has been removed
       </Desc>
 
-      <Button href="/">Go to homepage</Button>
+      <Spacing height={40} />
+
+      <Button>Go to homepage</Button>
     </Container>
   );
 };

@@ -56,9 +56,7 @@ const SettingsPage = () => {
 
       <WhiteSpace height={40} />
 
-      <Button href="" maxWidth={147} role="button">
-        Save Change
-      </Button>
+      <Button maxWidth={147}>Save Change</Button>
     </>
   );
 };
