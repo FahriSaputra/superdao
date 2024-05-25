@@ -38,7 +38,8 @@ export default function MenuCell(props: MenuCellProps) {
 
   const router = useRouter();
 
-  const isActive = path === menu?.linkTo;
+  const isActive =
+    path?.includes(menu?.linkTo) && menu?.linkTo !== "" && !menu?.subMenu;
 
   const subMenu = menu?.subMenu;
 
@@ -85,7 +86,7 @@ export default function MenuCell(props: MenuCellProps) {
           <SubMenuItem
             key={subMenu?.id}
             subMenu={subMenu}
-            active={subMenu?.linkTo === path}
+            active={subMenu?.linkTo?.includes(path)}
             onClick={onSubMenuClick}
           />
         ))}
