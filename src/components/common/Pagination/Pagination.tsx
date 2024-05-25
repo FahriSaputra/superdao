@@ -11,6 +11,14 @@ const PaginationContainer = styled.div`
   justify-content: flex-end;
   align-items: center;
   padding: 12px 20px 0 20px;
+  width: 100%;
+
+  @media only screen and (max-width: 768px) {
+    flex-direction: column;
+    gap: 16px;
+    justify-content: flex-end;
+    align-items: flex-end;
+  }
 `;
 
 const SelectField = styled.div<{
@@ -47,6 +55,10 @@ const PaginationText = styled.span`
   text-align: left;
   color: #a2a8b4;
   margin: 0 16px;
+
+  @media only screen and (max-width: 768px) {
+    margin: 0;
+  }
 `;
 
 const ArrowContainer = styled.div`

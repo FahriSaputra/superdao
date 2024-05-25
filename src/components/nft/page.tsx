@@ -10,10 +10,10 @@ import {
 
 import Header from "@/components/common/Header";
 import SearchInput from "@/components/common/SearchInput";
-import NFTTable from "./_components/NFTTable";
 import columns from "./_components/TableColumns/TableColumns";
 
 import nftCollections from "@/dummy/nft-collection.json";
+import { MainTable } from "../common/Table";
 
 const NFTPage = () => {
   const [pagination, setPagination] = useState<PaginationState>({
@@ -38,11 +38,16 @@ const NFTPage = () => {
         title="NFT collections"
         counter={nftCollections?.length}
         rightContent={
-          <SearchInput placeholder="Search" size={"xl"} width="240px" />
+          <SearchInput
+            placeholder="Search"
+            size={"xl"}
+            width="240px"
+            mobileStyle={{ width: "100%" }}
+          />
         }
       />
 
-      <NFTTable table={table} />
+      <MainTable table={table} />
     </>
   );
 };

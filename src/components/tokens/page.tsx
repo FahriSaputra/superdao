@@ -38,7 +38,12 @@ const NFTPage = () => {
         title="Tokens"
         counter={tokens?.length}
         rightContent={
-          <SearchInput placeholder="Search" size={"xl"} width="240px" />
+          <SearchInput
+            placeholder="Search"
+            size={"xl"}
+            width="240px"
+            mobileStyle={{ width: "100%" }}
+          />
         }
       />
 

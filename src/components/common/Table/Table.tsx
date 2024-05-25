@@ -6,12 +6,16 @@ import Pagination from "../Pagination";
 import styled from "styled-components";
 
 const TableContainer = styled.div`
-  overflow: scroll;
   border-radius: 8px;
   width: 100%;
   background: #252b36;
   padding: 8px 0 20px 0;
   margin-bottom: 56px;
+`;
+
+const Wrapper = styled.div`
+  overflow: scroll;
+  width: 100%;
 
   &::-webkit-scrollbar {
     display: none;
@@ -80,33 +84,38 @@ const MainTable = (props: IMainTableProps) => {
   const rowLength = table.getRowModel().rows.length;
   const pageCount = table.getPageCount();
 
-  const showPagination = rowLength > 10 || pageCount > 1;
+  const showPagination = rowLength > 9 || pageCount > 1;
 
   return (
     <TableContainer>
-      <Table>
-        <thead>
-          {table.getHeaderGroups()?.map((headerGroup) => (
-            <TRow key={headerGroup.id}>
-              {headerGroup.headers.map((header) =>
-                flexRender(header.column.columnDef.header, header.getContext())
-              )}
-            </TRow>
-          ))}
-        </thead>
-
-        <tbody>
-          {table.getRowModel().rows.map((row) => (
-            <TRow key={row.id} bgHovered>
-              {row
-                .getVisibleCells()
-                .map((cell) =>
-                  flexRender(cell.column.columnDef.cell, cell.getContext())
+      <Wrapper>
+        <Table>
+          <thead>
+            {table.getHeaderGroups()?.map((headerGroup) => (
+              <TRow key={headerGroup.id}>
+                {headerGroup.headers.map((header) =>
+                  flexRender(
+                    header.column.columnDef.header,
+                    header.getContext()
+                  )
                 )}
-            </TRow>
-          ))}
-        </tbody>
-      </Table>
+              </TRow>
+            ))}
+          </thead>
+
+          <tbody>
+            {table.getRowModel().rows.map((row) => (
+              <TRow key={row.id} bgHovered>
+                {row
+                  .getVisibleCells()
+                  .map((cell) =>
+                    flexRender(cell.column.columnDef.cell, cell.getContext())
+                  )}
+              </TRow>
+            ))}
+          </tbody>
+        </Table>
+      </Wrapper>
 
       {showPagination && <Pagination table={table} rows={rowsPerPages} />}
     </TableContainer>

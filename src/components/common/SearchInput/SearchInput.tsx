@@ -2,7 +2,11 @@
 
 import styled from "styled-components";
 
-const SearchInput = styled.input<{ width?: string; size: "xl" | "md" }>`
+const SearchInput = styled.input<{
+  width?: string;
+  size: "xl" | "md";
+  mobileStyle?: React.CSSProperties;
+}>`
   padding: 8px 16px 8px 36px;
   border-radius: 8px;
   border: none;
@@ -25,6 +29,10 @@ const SearchInput = styled.input<{ width?: string; size: "xl" | "md" }>`
 
   &:focus {
     outline: none;
+  }
+
+  @media only screen and (max-width: 768px) {
+    ${({ mobileStyle }) => mobileStyle && { ...mobileStyle }}
   }
 `;
 
