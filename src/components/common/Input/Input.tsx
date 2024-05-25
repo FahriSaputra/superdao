@@ -65,8 +65,14 @@ const InputComponent = styled.input<{
     type === "file" &&
     `
     font-size: 0px !important;
+  `}
+
+  ${({ type }) =>
+    (type === "file" || type === "button") &&
+    `
     cursor: pointer;
   `}
+
 
   // text style
   flex-grow: 0;
@@ -167,9 +173,9 @@ const Input = (props: IInputProps) => {
   };
 
   return (
-    <InputContainer onClick={onLeftIconClick}>
+    <InputContainer>
       {leftIcon && leftIconAlt && (
-        <ContentWrapper>
+        <ContentWrapper onClick={onLeftIconClick}>
           <Image width={16} height={16} alt={leftIconAlt} src={leftIcon} />
         </ContentWrapper>
       )}

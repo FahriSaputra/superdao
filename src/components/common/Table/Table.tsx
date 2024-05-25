@@ -76,10 +76,11 @@ const TData = styled.td<{
 interface IMainTableProps {
   table: TableData<any>;
   rowsPerPages?: number[];
+  pressAble?: boolean;
 }
 
 const MainTable = (props: IMainTableProps) => {
-  const { table, rowsPerPages = [10, 15, 25] } = props;
+  const { table, rowsPerPages = [10, 15, 25], pressAble = true } = props;
 
   const rowLength = table.getRowModel().rows.length;
   const pageCount = table.getPageCount();
@@ -105,7 +106,7 @@ const MainTable = (props: IMainTableProps) => {
 
           <tbody>
             {table.getRowModel().rows.map((row) => (
-              <TRow key={row.id} bgHovered>
+              <TRow key={row.id} bgHovered={pressAble}>
                 {row
                   .getVisibleCells()
                   .map((cell) =>

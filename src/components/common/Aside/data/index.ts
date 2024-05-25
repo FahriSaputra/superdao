@@ -88,7 +88,7 @@ const MENU_DATA: IMenuItem[] = [
     id: 5,
     title: "Members",
     icon: "/assets/members.svg",
-    activeIcon: "/assets/members.svg",
+    activeIcon: "/assets/members-active.svg",
     linkTo: "/members",
     defaultOpen: false,
     subMenu: [],
