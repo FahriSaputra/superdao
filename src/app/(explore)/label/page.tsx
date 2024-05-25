@@ -1,7 +1,12 @@
-import LabelPage from "@/components/label/Page";
+import Loading from "@/app/loading";
+import dynamic from "next/dynamic";
+
+const LazyLabelPage = dynamic(() => import("@/components/label/Page"), {
+  loading: () => <Loading />,
+});
 
 const Page = () => {
-  return <LabelPage />;
+  return <LazyLabelPage />;
 };
 
 export default Page;
