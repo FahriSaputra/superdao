@@ -15,9 +15,15 @@ const Container = styled.div`
   border-radius: 8px;
   background: #252b36;
   cursor: pointer;
+  width: 100%;
+  flex-basis: 248px;
 
   &:hover {
     background: #343a46;
+  }
+
+  @media only screen and (max-width: 768px) {
+    flex-basis: 100%;
   }
 `;
 

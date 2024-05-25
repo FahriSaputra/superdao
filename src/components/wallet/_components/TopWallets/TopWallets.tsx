@@ -19,10 +19,11 @@ const FilterWapper = styled.div`
 `;
 
 const TopWalletWrapper = styled.div`
-  display: grid;
-  gap: 16px;
-  grid-template-columns: repeat(4, 1fr);
+  display: flex;
+
+  flex-wrap: wrap;
   margin-bottom: 40px;
+  gap: 16px;
 `;
 
 const TopWallets = () => {
