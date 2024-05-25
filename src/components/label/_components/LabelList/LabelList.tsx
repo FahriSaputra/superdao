@@ -12,9 +12,9 @@ const Container = styled.div`
 `;
 
 const LabelWrapper = styled.div`
-  display: grid;
+  display: flex;
+  flex-wrap: wrap;
   gap: 20px 16px;
-  grid-template-columns: repeat(4, 1fr);
 `;
 
 interface LabelList {

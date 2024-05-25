@@ -10,6 +10,7 @@ const Container = styled.div`
   align-items: center;
   border-radius: 8px;
   cursor: pointer;
+  flex-basis: 245px;
 
   &:hover {
     background-color: rgba(208, 220, 245, 0.08);
