@@ -1,7 +1,7 @@
 "use client";
 
 import Image from "next/image";
-import { InputHTMLAttributes, useRef, useState } from "react";
+import { CSSProperties, InputHTMLAttributes, useRef, useState } from "react";
 import styled from "styled-components";
 
 const InputComponent = styled.input<{
@@ -98,6 +98,7 @@ const Label = styled.label`
   letter-spacing: -0.24px;
   text-align: left;
   margin: 8px 0;
+  cursor: pointer;
 `;
 
 const InputContainer = styled.div`
@@ -122,6 +123,7 @@ const RightContentWrapper = styled(ContentWrapper)`
   right: 0;
   left: initial;
   padding: 12px 16px 12px 12px;
+  cursor: pointer;
 `;
 
 interface IInputProps extends InputHTMLAttributes<HTMLInputElement> {
@@ -132,6 +134,7 @@ interface IInputProps extends InputHTMLAttributes<HTMLInputElement> {
   leftIconAlt?: string;
   rightIconAlt?: string;
   leftContent?: React.ReactNode;
+  containerStyle?: CSSProperties;
 }
 
 const Input = (props: IInputProps) => {
@@ -143,6 +146,7 @@ const Input = (props: IInputProps) => {
     leftIconAlt,
     rightIconAlt,
     leftContent,
+    containerStyle,
     ...rest
   } = props;
 
@@ -173,7 +177,7 @@ const Input = (props: IInputProps) => {
   };
 
   return (
-    <InputContainer>
+    <InputContainer style={containerStyle}>
       {leftIcon && leftIconAlt && (
         <ContentWrapper onClick={onLeftIconClick}>
           <Image width={16} height={16} alt={leftIconAlt} src={leftIcon} />

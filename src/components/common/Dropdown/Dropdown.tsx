@@ -26,6 +26,7 @@ interface DropdownProps {
   position?: "bottom" | "bottom-right" | "top" | "top-right";
   childrenContainerStyle?: CSSProperties;
   visible: boolean;
+  containerStyle?: CSSProperties;
   onClick?: React.MouseEventHandler<HTMLDivElement>;
   onOutsideClick: () => void;
 }
@@ -36,6 +37,7 @@ const Dropdown = (props: DropdownProps) => {
     onOutsideClick,
     dropdownButton,
     childrenContainerStyle,
+    containerStyle,
     position = "bottom",
     visible,
     onClick,
@@ -54,7 +56,7 @@ const Dropdown = (props: DropdownProps) => {
   useOutsideClick(containerRef, onOutsideClick);
 
   return (
-    <Container ref={containerRef}>
+    <Container ref={containerRef} style={containerStyle}>
       <div onClick={onClick}>{dropdownButton}</div>
 
       {visible && (

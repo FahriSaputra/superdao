@@ -15,12 +15,15 @@ import { MainTable } from "@/components/common/Table";
 
 import member from "@/dummy/member.json";
 import Button from "../common/Button/Button";
+import { useRouter } from "next/navigation";
 
 const NFTPage = () => {
   const [pagination, setPagination] = useState<PaginationState>({
     pageIndex: 0,
     pageSize: 10,
   });
+
+  const router = useRouter();
 
   const table = useReactTable({
     data: member,
@@ -33,6 +36,10 @@ const NFTPage = () => {
     },
   });
 
+  const handleClickAdd = () => {
+    router.push("/members/add");
+  };
+
   return (
     <>
       <Header
@@ -42,6 +49,7 @@ const NFTPage = () => {
           <Button
             buttonStyle="secondary"
             style={{ paddingLeft: 16, paddingRight: 16 }}
+            onClick={handleClickAdd}
           >
             <Image
               width={20}
