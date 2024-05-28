@@ -4,13 +4,14 @@ import { Table as TableData, flexRender } from "@tanstack/react-table";
 import Pagination from "../Pagination";
 
 import styled from "styled-components";
+import { CSSProperties } from "react";
 
-const TableContainer = styled.div`
+const TableContainer = styled.div<{ hidePagination?: boolean }>`
   border-radius: 8px;
   width: 100%;
   background: #252b36;
   padding: 8px 0 20px 0;
-  margin-bottom: 56px;
+  margin-bottom: ${({ hidePagination }) => (hidePagination ? 0 : "56px")};
 `;
 
 const Wrapper = styled.div`
@@ -28,7 +29,7 @@ const Table = styled.table`
   width: 100%;
 `;
 
-const TRow = styled.tr<{ bgHovered?: boolean }>`
+const TRow = styled.tr<{ bgHovered?: boolean; tableRowStyle?: CSSProperties }>`
   display: flex;
   justify-content: space-between;
   padding: 0 20px;
@@ -39,6 +40,8 @@ const TRow = styled.tr<{ bgHovered?: boolean }>`
         background-color: #333a46;
         cursor: pointer;
       }`}
+
+  ${({ tableRowStyle }) => tableRowStyle && { ...tableRowStyle }}
 `;
 
 const TableContentHead = styled.th<{
@@ -77,23 +80,34 @@ interface IMainTableProps {
   table: TableData<any>;
   rowsPerPages?: number[];
   pressAble?: boolean;
+  topContent?: React.ReactNode;
+  hidePagination?: boolean;
+  tableRowStyle?: CSSProperties;
 }
 
 const MainTable = (props: IMainTableProps) => {
-  const { table, rowsPerPages = [10, 15, 25], pressAble = true } = props;
+  const {
+    table,
+    rowsPerPages = [10, 15, 25],
+    pressAble = true,
+    topContent,
+    hidePagination = false,
+    tableRowStyle,
+  } = props;
 
   const rowLength = table.getRowModel().rows.length;
   const pageCount = table.getPageCount();
 
-  const showPagination = rowLength > 9 || pageCount > 1;
+  const showPagination = (rowLength > 9 || pageCount > 1) && !hidePagination;
 
   return (
-    <TableContainer>
+    <TableContainer hidePagination={hidePagination}>
+      {topContent}
       <Wrapper>
         <Table>
           <thead>
             {table.getHeaderGroups()?.map((headerGroup) => (
-              <TRow key={headerGroup.id}>
+              <TRow key={headerGroup.id} tableRowStyle={tableRowStyle}>
                 {headerGroup.headers.map((header) =>
                   flexRender(
                     header.column.columnDef.header,
@@ -106,7 +120,11 @@ const MainTable = (props: IMainTableProps) => {
 
           <tbody>
             {table.getRowModel().rows.map((row) => (
-              <TRow key={row.id} bgHovered={pressAble}>
+              <TRow
+                key={row.id}
+                bgHovered={pressAble}
+                tableRowStyle={tableRowStyle}
+              >
                 {row
                   .getVisibleCells()
                   .map((cell) =>

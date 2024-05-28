@@ -6,7 +6,7 @@ const MENU_DATA: IMenuItem[] = [
     title: "Explore",
     icon: "/assets/explore.svg",
     activeIcon: "/assets/explore.svg",
-    linkTo: "",
+    linkTo: "/explore",
     defaultOpen: true,
     subMenu: [
       {
@@ -82,7 +82,13 @@ const MENU_DATA: IMenuItem[] = [
     activeIcon: "/assets/reporting.svg",
     linkTo: "/reporting",
     defaultOpen: false,
-    subMenu: [],
+    subMenu: [
+      {
+        id: 1,
+        title: "optic.xyz",
+        linkTo: "/reporting?name=optic.xyz",
+      },
+    ],
   },
   {
     id: 5,
