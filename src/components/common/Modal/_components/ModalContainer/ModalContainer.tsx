@@ -13,9 +13,10 @@ const Backdrop = styled.div`
   top: 0;
   bottom: 0;
   background-color: rgba(27, 32, 42, 0.84);
-  
+
   @media only screen and (max-width: 768px) {
-    width: 100vw
+    width: 100vw;
+    position: fixed;
   }
 `;
 
