@@ -13,6 +13,10 @@ const Backdrop = styled.div`
   top: 0;
   bottom: 0;
   background-color: rgba(27, 32, 42, 0.84);
+  
+  @media only screen and (max-width: 768px) {
+    width: 100vw
+  }
 `;
 
 const Container = styled.div`
@@ -26,6 +30,11 @@ const ModalWrapper = styled.div`
   background-color: #252b36;
   border-radius: 12px;
   min-width: 400px;
+
+  @media only screen and (max-width: 768px) {
+    width: calc(100vw - 48px);
+    min-width: 0;
+  }
 `;
 
 const ModalContainer = (
