@@ -3,6 +3,7 @@ import type { Metadata } from "next";
 import { sfProDisplay, sfProText } from "@/lib/font";
 import StyledComponentsRegistry from "@/lib/registry";
 import CommonLayout from "@/components/common/CommonLayout";
+import { AppContextProvider } from "@/lib/AppContextProvider";
 
 export const metadata: Metadata = {
   title: "Create Next App",
@@ -17,9 +18,11 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className={`${sfProText.variable} ${sfProDisplay.variable}`}>
-        <StyledComponentsRegistry>
-          <CommonLayout>{children}</CommonLayout>
-        </StyledComponentsRegistry>
+        <AppContextProvider>
+          <StyledComponentsRegistry>
+            <CommonLayout>{children}</CommonLayout>
+          </StyledComponentsRegistry>
+        </AppContextProvider>
       </body>
     </html>
   );

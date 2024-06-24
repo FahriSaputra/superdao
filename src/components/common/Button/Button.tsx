@@ -4,7 +4,7 @@ type TButton = "primary" | "secondary" | "text" | "danger";
 
 const Button = styled.button<{ maxWidth?: number; buttonStyle?: TButton }>`
   display: flex;
-  padding: 8px 24px;
+  padding: ${({ buttonStyle }) => buttonStyle === 'text' ? 0 : `8px 24px`};
   align-items: center;
   border-radius: 8px;
   cursor: pointer;

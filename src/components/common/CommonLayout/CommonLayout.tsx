@@ -4,6 +4,7 @@ import styled from "styled-components";
 import Aside from "@/components/common/Aside";
 import { useState } from "react";
 import MobileHeader from "./_components/MobileHeader";
+import Toast from "@/components/common/Notification";
 
 const Container = styled.main`
   display: flex;
@@ -67,6 +68,8 @@ export default function CommonLayout({
       <MainContent>
         <MobileHeader onClick={toggleMenu} />
         <Wrapper>{children}</Wrapper>
+        
+        <Toast />
       </MainContent>
     </Container>
   );

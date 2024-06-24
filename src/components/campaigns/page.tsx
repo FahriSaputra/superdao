@@ -4,6 +4,9 @@ import Button from "@/components/common/Button/Button";
 import styled from "styled-components";
 import Image from "next/image";
 
+import 'react-toastify/dist/ReactToastify.css';
+import { useNotification } from "../common/Notification/context/NotificationContext";
+
 const Container = styled.div`
   display: flex;
   height: 100%;
@@ -49,6 +52,8 @@ const Desc = styled.p`
 `;
 
 const CampaignsPage = () => {
+  const { show } = useNotification()
+
   return (
     <Container>
       <Wrapper>
@@ -66,7 +71,7 @@ const CampaignsPage = () => {
           it’s ready or contact us to be among the first to get access
         </Desc>
 
-        <Button>Contact us</Button>
+        <Button onClick={() => show({message: "message"})}>Contact us</Button>
       </Wrapper>
     </Container>
   );
