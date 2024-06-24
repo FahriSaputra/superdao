@@ -1,6 +1,4 @@
-import Image from "next/image";
 import { TableContentHead, TData } from "@/components/common/Table";
-import Avatar from "@/components/common/Avatar";
 import styled from "styled-components";
 import type { NFT } from "@/models/nft";
 import { ColumnDef, createColumnHelper } from "@tanstack/react-table";
@@ -24,6 +22,14 @@ const CollectionName = styled.span`
   text-overflow: ellipsis;
 `;
 
+const TDataBarChart = styled(TData)`
+  padding: 6px 6px 6px 0;
+  line-height: 20px;
+  font-size: 14px;
+  letter-spacing: -0.24px;
+  height: fit-content;
+`;
+
 const columnHelper = createColumnHelper<NFT>();
 
 const columns: ColumnDef<NFT, NFT>[] = [
@@ -40,14 +46,14 @@ const columns: ColumnDef<NFT, NFT>[] = [
       </TableContentHead>
     ),
     cell: (info) => (
-      <TData
+      <TDataBarChart
         width={135}
         textAlign="start"
         paddingLeft={0}
         style={{ marginRight: 8 }}
       >
-        <span>Layer3</span>
-      </TData>
+        <p>Layer3</p>
+      </TDataBarChart>
     ),
   }),
   columnHelper.accessor((row) => row, {
@@ -58,9 +64,9 @@ const columns: ColumnDef<NFT, NFT>[] = [
       </TableContentHead>
     ),
     cell: (info) => (
-      <TData width={79}>
-        <span>rank</span>
-      </TData>
+      <TDataBarChart width={79}>
+        <p>rank</p>
+      </TDataBarChart>
     ),
   }),
   columnHelper.accessor((row) => row, {
@@ -71,9 +77,9 @@ const columns: ColumnDef<NFT, NFT>[] = [
       </TableContentHead>
     ),
     cell: (info) => (
-      <TData width={83}>
-        <span>target</span>
-      </TData>
+      <TDataBarChart width={83}>
+        <p>target</p>
+      </TDataBarChart>
     ),
   }),
 ];

@@ -6,12 +6,19 @@ import Pagination from "../Pagination";
 import styled from "styled-components";
 import { CSSProperties } from "react";
 
-const TableContainer = styled.div<{ hidePagination?: boolean }>`
+const TableContainer = styled.div<{
+  hidePagination?: boolean;
+  containerStyle?: CSSProperties;
+}>`
   border-radius: 8px;
   width: 100%;
   background: #252b36;
   padding: 8px 0 20px 0;
   margin-bottom: ${({ hidePagination }) => (hidePagination ? 0 : "56px")};
+  &::-webkit-scrollbar {
+    display: none;
+  }
+  ${({ containerStyle }) => containerStyle && { ...containerStyle }}
 `;
 
 const Wrapper = styled.div`
@@ -83,6 +90,7 @@ interface IMainTableProps {
   topContent?: React.ReactNode;
   hidePagination?: boolean;
   tableRowStyle?: CSSProperties;
+  containerStyle?: CSSProperties;
 }
 
 const MainTable = (props: IMainTableProps) => {
@@ -93,6 +101,7 @@ const MainTable = (props: IMainTableProps) => {
     topContent,
     hidePagination = false,
     tableRowStyle,
+    containerStyle,
   } = props;
 
   const rowLength = table.getRowModel().rows.length;
@@ -101,7 +110,10 @@ const MainTable = (props: IMainTableProps) => {
   const showPagination = (rowLength > 9 || pageCount > 1) && !hidePagination;
 
   return (
-    <TableContainer hidePagination={hidePagination}>
+    <TableContainer
+      hidePagination={hidePagination}
+      containerStyle={containerStyle}
+    >
       {topContent}
       <Wrapper>
         <Table>

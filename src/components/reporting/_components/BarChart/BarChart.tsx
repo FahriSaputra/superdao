@@ -15,12 +15,12 @@ import { MainTable } from "@/components/common/Table";
 import styled from "styled-components";
 
 const Container = styled.div`
-  display: flex;
-  gap: 20px;
+  display: grid;
+  grid-gap: 10px;
+  grid-template-columns: repeat(auto-fill, minmax(333px, 1fr));
 `;
 
 const Wrapper = styled.div`
-  padding: 12px 8px 0 20px;
   border-radius: 8px;
   background-color: #252b36;
 `;
@@ -34,6 +34,8 @@ const Header = styled.div`
   letter-spacing: -0.24px;
   text-align: left;
   color: #a2a8b4;
+  padding: 12px 20px 0 20px;
+  line-height: 20px;
 `;
 
 const BarChart = () => {
@@ -60,7 +62,12 @@ const BarChart = () => {
         <MainTable
           table={table}
           hidePagination
-          tableRowStyle={{ padding: 0 }}
+          tableRowStyle={{ padding: "0 8px 0 20px" }}
+          containerStyle={{
+            paddingBottom: 0,
+            maxHeight: 373,
+            overflow: "scroll",
+          }}
         />
       </Wrapper>
 
@@ -69,7 +76,12 @@ const BarChart = () => {
         <MainTable
           table={table}
           hidePagination
-          tableRowStyle={{ padding: 0 }}
+          tableRowStyle={{ padding: "0 8px 0 20px" }}
+          containerStyle={{
+            paddingBottom: 0,
+            maxHeight: 373,
+            overflow: "scroll",
+          }}
         />
       </Wrapper>
 
@@ -78,7 +90,12 @@ const BarChart = () => {
         <MainTable
           table={table}
           hidePagination
-          tableRowStyle={{ padding: 0 }}
+          tableRowStyle={{ padding: "0 8px 0 20px" }}
+          containerStyle={{
+            paddingBottom: 0,
+            maxHeight: 373,
+            overflow: "scroll",
+          }}
         />
       </Wrapper>
     </Container>
